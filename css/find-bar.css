@@ -1,0 +1,70 @@
+/* ── 찾기(Ctrl+F) 바 ── */
+#find-bar {
+  position: fixed;
+  top: 32px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 220px;
+  background: var(--menu-bg);
+  border-radius: 6px;
+  padding: 6px 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--anim-duration) var(--anim-ease),
+              transform var(--anim-duration) var(--anim-ease),
+              visibility 0s linear var(--anim-duration);
+}
+#find-bar.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--anim-duration) var(--anim-ease),
+              transform var(--anim-duration) var(--anim-ease),
+              visibility 0s;
+}
+#find-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--menu-sep);
+  color: var(--menu-text);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  padding: 3px 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  outline: none;
+}
+#find-input:focus { border-bottom-color: var(--link-color); }
+
+#find-count {
+  color: var(--menu-text);
+  opacity: 1;
+  font-size: 12px;
+  flex: 0 0 auto;
+  min-width: 30px;
+  max-width: 200px;
+  padding: 0 3px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width var(--anim-duration) var(--anim-ease),
+              min-width var(--anim-duration) var(--anim-ease),
+              opacity var(--anim-duration) var(--anim-ease),
+              padding var(--anim-duration) var(--anim-ease);
+}
+#find-count:empty {
+  min-width: 0;
+  max-width: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+/* 에디터 안의 검색 매치 하이라이트 (ProseMirror Decoration이 붙이는 클래스) */
+.find-match { background: color-mix(in srgb, yellow 55%, transparent); border-radius: 2px; }
+.find-match-active { background: orange; border-radius: 2px; }

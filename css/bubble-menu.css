@@ -1,0 +1,52 @@
+#bubble-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--anim-duration) var(--anim-ease),
+              visibility var(--anim-duration) var(--anim-ease);
+  gap: 2px;
+  background: var(--menu-bg);
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transform: translate(-50%, calc(-100% - 8px));
+}
+#bubble-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#bubble-menu button {
+  border: none;
+  background: transparent;
+  color: var(--menu-text);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#bubble-menu button:hover { background: var(--menu-hover-bg); }
+#bubble-menu button.active { background: var(--link-color); color: var(--bg-color); }
+#bubble-menu .sep {
+  width: 1px;
+  background: var(--menu-sep);
+  margin: 4px 2px;
+}
+#bubble-menu button b { font-weight: 700; }
+#bubble-menu button i { font-style: italic; }
+
+#bubble-menu #bb-tbl-convert {
+  width: auto;
+  padding: 0 10px;
+  font-size: 13px;
+  white-space: nowrap;
+}
