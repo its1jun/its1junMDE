@@ -1,0 +1,43 @@
+Markdown/
+├── js/                              # 프론트엔드 자바스크립트 모듈 디렉토리
+│   ├── api.js                       # pywebview API 준비 대기 및 호출 헬퍼(withApi), 여러 모듈이 공통 사용
+│   ├── app-menu.js                  # 기본 우클릭 컨텍스트 메뉴: 새 파일, 열기, 저장, 다른 이름으로 저장, 표/링크/이미지 삽입
+│   ├── bubble-menu.js               # 텍스트 선택 시 나타나는 플로팅(버블) 서식 툴바 및 선택 상태/위치 제어
+│   ├── context-menu.js              # 우클릭 메뉴 공통 동작: 표시/숨김/위치 보정/바깥 클릭·ESC로 닫기/버튼 연결
+│   ├── config.js                    # 에디터/Markdown/UI/표/파일/탭/대화상자/링크/이미지 관련 전역 설정
+│   ├── confirm-dialog.js            # 저장하지 않은 탭을 닫을 때 뜨는 저장/저장 안 함/취소 확인 대화상자
+│   ├── doc-context.js               # 활성 문서의 경로·기준 폴더 URL 관리 및 상대/Windows 이미지 경로 변환
+│   ├── editor.js                    # Tiptap 에디터 생성, 확장 등록 및 전체 초기화; 표 뒤 문단·서식 탈출 등 커스텀 동작 포함
+│   ├── file-io.js                   # pywebview API 브릿지와 연동한 파일 열기/저장(탭 단위) 및 상태 메시지, 창 닫기 요청 처리, 단축키 연결, 저장 시 마크다운/순수 글자 버전을 함께 Python에 전달
+│   ├── formatting.js                # 헤딩/인용구/목록 토글 및 버블 메뉴 서식 명령 처리
+│   ├── image-fallback.js            # 이미지 로드 실패 시 Python 로컬 이미지 서버 URL로 화면 표시 주소만 대체
+│   ├── image-view.js                # 이미지 NodeView와 오른쪽 아래 모서리 리사이즈, 원래 크기 복원 및 width 속성 저장
+│   ├── insert-dialog.js             # 링크/이미지 입력 대화상자; URL 검증, 선택 복원, 이미지 파일 선택 및 링크 제거 지원
+│   ├── link-click.js                # Ctrl/Cmd+클릭 시 링크를 시스템 기본 브라우저로 열기
+│   ├── markdown.js                  # Markdown 텍스트 ↔ HTML/Editor JSON 변환 처리
+│   ├── no-list-rejoin.js            # 리스트 항목/리스트·인용문 바로 뒤 문단에서 Backspace 시 구조가 합쳐지거나 늘어나는 현상을 방지하는 custom Extension
+│   ├── tabs.js                      # 문서 탭 목록/전환/닫기 관리, 탭별 에디터 상태(실행 취소 포함) 보관
+│   ├── shortcuts.js                 # 전역 단축키: 저장/열기/새 창/새 탭/탭 닫기/탭 전환
+│   ├── tab-bar.js                   # 탭 바 화면 표시 및 드래그로 탭 순서 변경
+│   ├── table-actions.js             # 표 삽입, 마크다운 표 텍스트 변환, 표 행/열/헤더/삭제 명령
+│   ├── table-menu.js                # 표 셀 우클릭 컨텍스트 메뉴: 헤더 토글, 행/열 추가·삭제, 표 삭제
+│   ├── vendor.js                    # Tiptap/ProseMirror 및 관련 라이브러리의 번들/재export 모듈
+│   ├── find-bar.js                  # 찾기 Ctrl+F 바
+│   ├── link-menu.js                 # 링크 우클릭 메뉴
+│   ├── image-menu.js                # 이미지 우클릭 메뉴
+│   ├── plain-text.js                # txt 저장용: 에디터 내용을 마크다운 기호 없는 순수 글자로 변환
+│   ├── no-list-nesting.js           # 리스트 항목 안에서 "- " 등을 입력해도 리스트가 겹쳐 만들어지지 않게 막는 입력 처리
+│   └── welcome-content.js           # 에디터 시작 시 표시되는 안내 문서(마크다운 문법/단축키 설명) HTML
+├── css/                             # 스타일시트 디렉토리 (기능별로 분리, 색/크기 변수는 base.css의 :root에서 공통 관리)
+│   ├── base.css                     # :root 색상/크기/글꼴/줄간격 변수, html·body 기본 스타일, 글자 선택(::selection) 색
+│   ├── layout.css                   # 상태 바, 에디터 영역(#editor-wrap, #editor) 배치와 스크롤바
+│   ├── editor-content.css           # 에디터 안 Markdown 요소 스타일: 제목, 문단, 코드, 인용문, 목록, 구분선, 굵게/기울임
+│   ├── find-bar.css                 # 찾기(Ctrl+F) 바와 검색 결과 하이라이트
+│   ├── bubble-menu.css              # 텍스트 선택 시 나타나는 버블 서식 툴바 (표 변환 버튼 포함)
+│   ├── table.css                    # 표, 셀 선택, 열 크기 조절 핸들
+│   ├── context-menu.css             # 우클릭 메뉴 공통 스타일 (기본/표/이미지/링크 메뉴)
+│   ├── dialog.css                   # 링크/이미지 입력 대화상자, 저장 확인 대화상자, 공용 버튼 영역
+│   ├── image.css                    # 이미지 표시와 크기 조절 핸들
+│   └── tab-bar.css                  # 탭 바, 탭, 닫기 버튼
+├── index.html                       # 에디터 UI 레이아웃, 탭 바, 버블 메뉴/우클릭 메뉴/표 메뉴/입력·확인 대화상자 DOM 구조, css/ 파일 10개 연결
+└── main.py                          # pywebview 기반 데스크톱 GUI 실행, 경로 기반 File I/O/이미지 API 제공, 새 창 실행, 창 닫기 가로채기, .md/.txt 저장 지원 (.txt는 순수 글자로 저장)
