@@ -1,0 +1,51 @@
+.ProseMirror table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.ProseMirror th, .ProseMirror td {
+  position: relative;
+  min-width: 1em;
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.ProseMirror th {
+  background: var(--code-bg);
+  font-weight: 700;
+  text-align: left;
+}
+.ProseMirror td > p, .ProseMirror th > p { margin: 0; }
+/* 선택된 셀: 위에 색을 덮지 않고 셀 배경 자체를 선택색으로 바꾸고, 글자는 반전색으로 표시 */
+.ProseMirror .selectedCell {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+.ProseMirror .selectedCell::after {
+  content: none;
+}
+/* 셀 선택 중에는 브라우저 기본 글자 선택색을 꺼서 마지막 칸만 다르게 보이는 현상을 방지 */
+.ProseMirror .selectedCell ::selection {
+  background: transparent;
+  color: inherit;
+}
+/* 인라인 코드처럼 자체 글자색이 있는 요소도 반전색을 따르게 함 */
+.ProseMirror .selectedCell code {
+  color: inherit;
+  background: none;
+}
+.ProseMirror .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -2px;
+  width: 4px;
+  background: var(--link-color);
+  pointer-events: none;
+}
+.ProseMirror.resize-cursor { cursor: col-resize; }
+.ProseMirror .tableWrapper { overflow-x: auto; }

@@ -1,0 +1,15 @@
+/* 안내문: 에디터(#editor) 안의 글자 시작 위치(위 20px, 좌우 30px)에 겹쳐 표시 */
+.welcome-overlay {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  right: 30px;
+  color: var(--muted-color);
+  font-size: 17px;
+  line-height: var(--line-height);
+  opacity: 0;
+  pointer-events: none; /* 클릭은 아래 에디터로 통과 */
+  user-select: none;
+  transition: opacity var(--anim-duration) var(--anim-ease);
+}
+.welcome-overlay.visible { opacity: 0.45; }
